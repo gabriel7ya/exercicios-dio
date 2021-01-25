@@ -41,3 +41,37 @@ for (var i=1; i <= numero; i++){
 }
 
 //----------
+var valores = [];
+
+pares = 0;
+positivos = 0;
+negativos = 0;
+
+for (var i=0; i < 5; i++){
+  valores.push(parseInt(gets()));
+  if (valores[i] % 2 == 0){ ++pares; }
+  if (valores[i] > 0){ ++positivos; }
+  if (valores[i] < 0){ ++negativos; }
+}
+
+console.log(pares +' valor(es) par(es)');
+console.log(valores.length-pares +' valor(es) impar(es)');
+console.log(positivos +' valor(es) positivo(s)');
+console.log(negativos +' valor(es) negativo(s)');
+
+//---------Exercicio Contagem de Cédulas 4/5.
+let valor = parseInt(gets());
+
+console.log(valor);
+let tipoNotas = [100, 50, 20, 10, 5, 2, 1];
+
+function contarNotas(cedula) {
+  let notas = 0;
+  while (valor >= cedula) {
+    valor -= cedula;
+    notas++;
+  }
+  
+  return console.log(`${notas} nota(s) de R$ ${cedula.toFixed(2).replace('.', ',')}`);
+}
+tipoNotas.forEach(nota => contarNotas(nota));
